@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import App from "./Todo-App/App";
+import Props from "./Props/Props";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Props />
   </React.StrictMode>,
   document.getElementById("root")
 );
