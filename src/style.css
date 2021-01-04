@@ -7,3 +7,18 @@
     font-family: "Inter", sans-serif;
     font-weight: 400;
 }
+
+button {
+    padding: .6rem 2rem;
+    text-align: center;
+    border: 1px solid #256eff;
+    background: #256eff;
+    font-size: 18px;
+    color: #FFF;
+    border-radius: .2rem;
+}
+
+button:active,
+button:focus {
+    outline: none;
+}

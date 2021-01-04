@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import Greeter from "./Greetings.js";
 import "../style.css";
 
-function Calculate({ value }) {
-  return <h1>Calculation is {value * value}</h1>;
+function LoginButton(props) {
+  return <button onClick={props.onClick}>Login</button>;
 }
 
-function Calculate2({ value }) {
-  return <h1>Calculation is {parseInt(value + value)}</h1>;
+function LogoutButton(props) {
+  return <button onClick={props.onClick}>Logout</button>;
 }
 
-function Props() {
+function LoginController() {
+  const [isLoggedIn, setLoggedIn] = useState(true);
+
+  const handleClick = () => {
+    setLoggedIn(!isLoggedIn);
+  };
+
   return (
     <div>
-      <Calculate value="4"></Calculate>
-      <Calculate2 value="4"></Calculate2>
+      <Greeter isLoggedIn={isLoggedIn} />
+      {isLoggedIn ? (
+        <LogoutButton onClick={handleClick} />
+      ) : (
+        <LoginButton onClick={handleClick} />
+      )}
     </div>
   );
 }
 
-export default Props;
+export default LoginController;
