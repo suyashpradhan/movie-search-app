@@ -1,8 +1,27 @@
 import React, { useState } from "react";
-import Greeter from "./Greetings.js";
 import "../style.css";
 
-function LoginButton(props) {
+function GreetUser() {
+  return <h2>Hello, welcome back!</h2>;
+}
+
+function GreetGuest() {
+  return <h2>Hello, please login!</h2>;
+}
+
+function Greeter(props) {
+  console.log(props);
+  let isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <GreetUser />;
+  }
+
+  return <GreetGuest />;
+}
+
+export default Greeter;
+
+/* function LoginButton(props) {
   return <button onClick={props.onClick}>Login</button>;
 }
 
@@ -30,3 +49,4 @@ function LoginController() {
 }
 
 export default LoginController;
+ */
