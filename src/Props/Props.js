@@ -10,7 +10,6 @@ function GreetGuest() {
 }
 
 function Greeter(props) {
-  console.log(props);
   let isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
     return <GreetUser />;
@@ -20,33 +19,3 @@ function Greeter(props) {
 }
 
 export default Greeter;
-
-/* function LoginButton(props) {
-  return <button onClick={props.onClick}>Login</button>;
-}
-
-function LogoutButton(props) {
-  return <button onClick={props.onClick}>Logout</button>;
-}
-
-function LoginController() {
-  const [isLoggedIn, setLoggedIn] = useState(true);
-
-  const handleClick = () => {
-    setLoggedIn(!isLoggedIn);
-  };
-
-  return (
-    <div>
-      <Greeter isLoggedIn={isLoggedIn} />
-      {isLoggedIn ? (
-        <LogoutButton onClick={handleClick} />
-      ) : (
-        <LoginButton onClick={handleClick} />
-      )}
-    </div>
-  );
-}
-
-export default LoginController;
- */

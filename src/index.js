@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Props from "./Props/Props";
+import Form from "./Form/Form";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Props />
+    <Form />
   </React.StrictMode>,
   document.getElementById("root")
 );
