@@ -1,36 +1,31 @@
 import React, { useState } from "react";
-import { Button, Card, Form, Alert } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
+import List from "./List";
 import "../style.css";
 
 //Main Component
 let App = () => {
-  let [input, setInput] = useState();
+  let [input, setInput] = useState("");
   let [todo, setTodo] = useState([]);
 
+  let inputHandler = (e) => setInput(e.target.value);
   let clickHandler = () => {
-    setTodo((prevState) => [...prevState, input]);
+    setTodo([...todo, { input: input, key: Math.floor(Math.random() * 999) }]);
+    setInput("");
   };
-
-  function removeTodo(id) {
-    setTodo((prevData) => {
-      return prevData.filter((item, index) => {
-        return index !== id;
-      });
-    });
-  }
 
   return (
     <div className="container mt-4">
       <Card>
         <Card.Body>
           <Card.Title className="h1 text-center">Todo List</Card.Title>
-
           <Form.Group>
             <Form.Label>Add a todo</Form.Label>
             <Form.Control
+              value={input}
+              onChange={inputHandler}
               type="text"
               placeholder="Buy Bread"
-              onChange={(event) => setInput(event.target.value)}
             />
           </Form.Group>
           <Button variant="primary" onClick={clickHandler}>
@@ -39,27 +34,11 @@ let App = () => {
         </Card.Body>
       </Card>
 
-      <Card className="mt-3">
+      <Card className="container mt-4">
         <Card.Body>
-          <Card.Title className="text-center ">Remaining Todos</Card.Title>
-          <hr />
-          {todo.map((item, index) => {
-            return (
-              <Alert
-                key={index}
-                id={index}
-                item={item}
-                variant="primary"
-                onClick={removeTodo}
-              >
-                {item}
-              </Alert>
-            );
-          })}
+          <List todo={todo} />
         </Card.Body>
       </Card>
-
-      {console.log(todo)}
     </div>
   );
 };
