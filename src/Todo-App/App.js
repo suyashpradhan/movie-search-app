@@ -8,9 +8,12 @@ let App = () => {
   let [input, setInput] = useState("");
   let [todo, setTodo] = useState([]);
 
-  let inputHandler = (e) => setInput(e.target.value);
-  let clickHandler = () => {
-    setTodo([...todo, { input: input, key: Math.floor(Math.random() * 999) }]);
+  let todoHandler = (e) => {
+    setInput(e.target.value);
+  };
+
+  let todoButtonHandler = () => {
+    setTodo([...todo, input]);
     setInput("");
   };
 
@@ -23,21 +26,19 @@ let App = () => {
             <Form.Label>Add a todo</Form.Label>
             <Form.Control
               value={input}
-              onChange={inputHandler}
+              onChange={todoHandler}
               type="text"
               placeholder="Buy Bread"
             />
           </Form.Group>
-          <Button variant="primary" onClick={clickHandler}>
+          <Button variant="primary" onClick={todoButtonHandler}>
             Submit
           </Button>
         </Card.Body>
       </Card>
 
-      <Card className="container mt-4">
-        <Card.Body>
-          <List todo={todo} />
-        </Card.Body>
+      <Card className="mt-4">
+        <Card.Body>{<List listTodo={todo} />}</Card.Body>
       </Card>
     </div>
   );

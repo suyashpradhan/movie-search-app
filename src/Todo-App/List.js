@@ -1,12 +1,12 @@
 import React from "react";
 
-function List(props) {
+function List({ listTodo }) {
   return (
     <div>
-      {props.todo.map((itemObj) => {
+      {listTodo.map((item) => {
         return (
-          <div key={itemObj.key} className="alert alert-warning">
-            {itemObj.input}
+          <div key={item} className="alert alert-warning">
+            {item}
           </div>
         );
       })}
