@@ -2,48 +2,66 @@ import React, { useState } from "react";
 import "../style.css";
 
 let Form = () => {
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [select, setSelect] = useState("lawyer");
+  let inputHandler = (e) => {};
 
-  let changeHandler = (event) => {
-    setName(event.target.value);
-  };
-
-  let textAreaHandler = (event) => {
-    setAddress(event.target.value);
-  };
-
-  let selectHandler = (event) => {
-    setSelect(event.target.value);
-  };
-
-  let handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(name, address, select);
+  let submitHandler = (e) => {
+    e.preventDefault();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name:</label>
-      <input
-        onChange={changeHandler}
-        type="text"
-        name="name"
-        value={name}
-      ></input>
+    <div className="container">
+      <h1 className="header">Create an account</h1>
       <br />
-      <br />
-      <textarea onChange={textAreaHandler} value={address}></textarea>
-      <br />
-      <br />
-      <select value={select} onChange={selectHandler}>
-        <option value="developer">Developer</option>
-        <option value="lawyer">Lawyer</option>
-        <option value="sales-manager">Sales Manager</option>
-      </select>
-      <input type="submit"></input>
-    </form>
+      <form id="form">
+        <div className="form-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={inputHandler}
+          ></input>
+        </div>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={inputHandler}
+          ></input>
+        </div>
+        <div className="form-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            className="form-control"
+            onChange={inputHandler}
+          ></input>
+        </div>
+        <div className="form-group">
+          <label>Set a password</label>
+          <input
+            type="password"
+            className="form-control"
+            autoComplete="none"
+            onChange={inputHandler}
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            className="form-control"
+            autoComplete="none"
+            onChange={inputHandler}
+          ></input>
+        </div>
+        <br />
+        <button className="button" onClick={submitHandler}>
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 
