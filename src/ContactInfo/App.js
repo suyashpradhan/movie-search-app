@@ -5,19 +5,21 @@ import "../style.css";
 
 function App() {
   let component = Data.map((item) => (
-    <ContactComponent
-      key={item.id}
-      name={item.name}
-      age={item.age}
-      location={item.location}
-      designation={item.designation}
-      interest={item.interest.map((singleInterest) => singleInterest)}
-      socialLink={item.socialLink.map((links) => links)}
-      langaugesKnown={item.langaugesKnown.map((langauge) => langauge)}
-    />
+    <ContactComponent key={item.id} info={item} />
   ));
-
   return <div>{component}</div>;
-}
 
+  /* let component = Data.map((item) => {
+    return (
+      <div className="container" key={item.id}>
+        <h1>{item.name}</h1>
+        <h1>{item.age}</h1>
+        <h1>{item.location}</h1>
+        <h1>{item.designation}</h1>
+      </div>
+    );
+  });
+
+  return <div>{component}</div>; */
+}
 export default App;
