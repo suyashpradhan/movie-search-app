@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./ContactInfo/App";
+import Form from "./Form/Form";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Form />
   </React.StrictMode>,
   document.getElementById("root")
 );
