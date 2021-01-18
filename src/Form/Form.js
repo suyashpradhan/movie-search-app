@@ -9,7 +9,7 @@ let Form = () => {
     password: "",
   });
 
-  function inputHandler(event) {
+  /* function inputHandler(event) {
     setInputs({ ...input, [event.target.name]: event.target.value });
   }
 
@@ -19,7 +19,7 @@ let Form = () => {
     alert(
       `name is ${name} username is ${username} email is ${email} password is ${password} `
     );
-  }
+  } */
 
   return (
     <div className="container">
