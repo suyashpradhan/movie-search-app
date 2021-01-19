@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import "../style.css";
 
 let Form = () => {
-  let [input, setInputs] = useState({
+  let [inputs, setInputs] = useState({
     name: "",
     username: "",
     email: "",
     password: "",
   });
+  let [data, setData] = useState([]);
 
-  /* function inputHandler(event) {
-    setInputs({ ...input, [event.target.name]: event.target.value });
+  function inputHandler(e) {
+    const { name } = e.target;
+    setInputs({ ...inputs, name });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const { name, username, email, password } = input;
-    alert(
-      `name is ${name} username is ${username} email is ${email} password is ${password} `
-    );
-  } */
+  function handleSubmit(e) {
+    e.preventDefault();
+    setData([...data, inputs]);
+  }
 
   return (
     <div className="container">
@@ -67,6 +66,17 @@ let Form = () => {
         <button className="button">Submit</button>
         <p></p>
       </form>
+
+      {data.map((item, index) => {
+        return (
+          <div key={index}>
+            <h1>{item.name}</h1>
+            <h1>{item.username}</h1>
+            <h1>{item.email}</h1>
+            <h1>{item.password}</h1>
+          </div>
+        );
+      })}
     </div>
   );
 };
