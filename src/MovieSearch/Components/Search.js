@@ -1,27 +1,22 @@
 import React, { useState } from "react";
 import Movie from "./Movie";
+import Body from "./Body";
 
 function Search() {
   let [input, setInput] = useState("");
   let [data, setData] = useState([]);
 
-  function inputHandler(event) {
-    setInput(event.target.value);
-  }
-
-  let apiURL = `https://api.themoviedb.org/3/search/movie?api_key=20b3557e9e2b3e74919ce30cdada1468&language=en-US&query=${input}&include_adult=false`;
+  let apiURL = `https://api.themoviedb.org/3/search/movie?api_key=20b3557e9e2b3e74919ce30cdada1468&language=en-US&query=${input}`;
 
   function submitHandler(e) {
     e.preventDefault();
-    fetch(apiURL)
-      .then((response) => {
-        response.json().then((value) => {
-          setData(value.results);
-        });
-      })
-      .catch((e) => {
-        console.log(e);
+
+    fetch(apiURL).then((response) => {
+      response.json().then((value) => {
+        setData(value.results);
       });
+    });
+    setInput("");
   }
 
   return (
@@ -33,7 +28,8 @@ function Search() {
               className="field"
               placeholder="Enter movie name..."
               name="movie"
-              onChange={inputHandler}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
             ></input>
             <i className="fas fa-search search-icon"></i>
           </div>
@@ -41,9 +37,13 @@ function Search() {
         </form>
       </section>
 
-      {data.map((item, index) => {
-        return <Movie key={index} renderedData={item} />;
-      })}
+      {data.length === 0 ? (
+        <Body />
+      ) : (
+        data.map((item, index) => {
+          return <Movie key={index} renderedData={item} />;
+        })
+      )}
     </div>
   );
 }

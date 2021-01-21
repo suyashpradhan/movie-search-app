@@ -8,7 +8,6 @@
     font-weight: 400;
 }
 
-
 body {
     background-color: #252628;
     width: 100%;
@@ -20,6 +19,12 @@ body {
 header {
     margin: 0 auto;
     max-width: 1140px;
+}
+
+.banner {
+    height: 35rem;
+    width: 100%;
+    margin: 2rem auto 0 auto;
 }
 
 .container {
@@ -166,4 +171,19 @@ button:focus {
     line-height: 1.6;
     text-align: justify;
     font-size: 1rem;
+}
+
+@media screen and (max-width:40rem) and (min-width:0) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+
+    .right-card-inner {
+        grid-template-columns: 1fr;
+        margin-bottom: 1.4rem;
+    }
+
+    .lang {
+        width: fit-content;
+    }
 }
