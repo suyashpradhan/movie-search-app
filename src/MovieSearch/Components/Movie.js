@@ -2,26 +2,22 @@ import React from "react";
 import ThumbnailImage from "../assets/no-picture.jpg";
 
 function Movie(props) {
-  let noImage = (
-    <img
-      src={ThumbnailImage}
-      alt={props.renderedData.title}
-      className="poster"
-    ></img>
-  );
-
-  let image = (
-    <img
-      src={`https://image.tmdb.org/t/p/original/${props.renderedData.poster_path}`}
-      alt={props.renderedData.title}
-      className="poster"
-    ></img>
-  );
-
   return (
     <div className="card">
       <div className="left-card">
-        {props.renderedData.poster_path ? image : noImage}
+        {props.renderedData.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/original/${props.renderedData.poster_path}`}
+            alt={props.renderedData.title}
+            className="poster"
+          ></img>
+        ) : (
+          <img
+            src={ThumbnailImage}
+            alt={props.renderedData.title}
+            className="poster"
+          ></img>
+        )}
       </div>
       <div className="right-card">
         <div className="right-card-inner">

@@ -21,6 +21,13 @@ header {
     max-width: 1140px;
 }
 
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .banner {
     height: 35rem;
     width: 100%;
@@ -33,14 +40,27 @@ header {
     max-width: 1140px;
 }
 
+.nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header {
     text-align: center;
     color: #fff;
     font-size: 4rem;
     font-weight: 600;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1rem;
     margin: 0;
+    flex: 1;
+}
+
+.icon {
+    font-size: 1.4rem;
+    color: #fff;
+    cursor: pointer;
 }
 
 .section {
