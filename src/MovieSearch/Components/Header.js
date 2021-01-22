@@ -7,7 +7,7 @@ function Header() {
         <nav className="nav">
           <h1 className="header">Moviez App</h1>
           <a
-            href="https://github.com/suyashpradhan/movie-app"
+            href="https://github.com/suyashpradhan/movie-search-app"
             rel="noreferrer"
             target="_blank"
           >
