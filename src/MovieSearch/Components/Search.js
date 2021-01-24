@@ -6,7 +6,9 @@ function Search() {
   let [input, setInput] = useState("");
   let [data, setData] = useState([]);
 
-  let apiURL = `https://api.themoviedb.org/3/search/movie?api_key=20b3557e9e2b3e74919ce30cdada1468&language=en-US&query=${input}`;
+  let apiKEY = process.env.REACT_APP_API_KEY;
+
+  let apiURL = `https://api.themoviedb.org/3/search/movie?api_key=${apiKEY}&language=en-US&query=${input}`;
 
   function submitHandler(e) {
     e.preventDefault();
